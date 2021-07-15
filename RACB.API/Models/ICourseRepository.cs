@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using RACB.API.Models;
 
-namespace RACB.API.Services
+namespace RACB.API.Models
 {
     public interface ICourseRepository
     {    

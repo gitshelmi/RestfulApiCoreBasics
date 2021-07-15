@@ -1,5 +1,4 @@
-using RACB.API.DBContext;
-using RACB.API.Services;
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Formatters;
@@ -7,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RACB.API.DataAccess;
+using RACB.API.Models;
 
 namespace RACB.API
 {
@@ -26,6 +27,8 @@ namespace RACB.API
             {
                 options.ReturnHttpNotAcceptable = true;
             }).AddXmlDataContractSerializerFormatters();
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddScoped<ICourseRepository, CourseRepository>();
 

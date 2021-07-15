@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using RACB.API.DBContext;
 using RACB.API.Models;
 
-namespace RACB.API.Services
+namespace RACB.API.DataAccess
 {
     public class CourseRepository : ICourseRepository, IDisposable
     {

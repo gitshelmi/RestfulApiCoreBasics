@@ -1,6 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using RACB.API.Services;
+using System.Collections.Generic;
+using System.Linq;
+using AutoMapper;
+using RACB.API.DTOs;
+using RACB.API.Extensions;
+using RACB.API.Models;
 
 namespace RACB.API.Controllers
 {
@@ -9,22 +14,26 @@ namespace RACB.API.Controllers
     public class AuthorsController : ControllerBase
     {
         private readonly ICourseRepository _courseRepository;
+        private readonly IMapper _mapper;
 
-        public AuthorsController(ICourseRepository courseRepository)
+        public AuthorsController(ICourseRepository courseRepository, IMapper mapper)
         {
             _courseRepository = courseRepository ??
                                 throw new ArgumentException(nameof(courseRepository));
+            _mapper = mapper ??
+                      throw new ArgumentException(nameof(mapper)); ;
         }
 
         [HttpGet]
-        public IActionResult GetAuthors()
+        public ActionResult<IEnumerable<AuthorDto>> GetAuthors()
         {
             var authors = _courseRepository.GetAuthors();
-            return Ok(authors);
+
+            return Ok(_mapper.Map<IEnumerable<AuthorDto>>(authors));
         }
-        .
+
         [HttpGet("{authorId}")]
-        public IActionResult GetAuthor(Guid authorId)
+        public ActionResult<AuthorDto> GetAuthor(Guid authorId)
         {
             var author = _courseRepository.GetAuthor(authorId);
 
@@ -33,7 +42,7 @@ namespace RACB.API.Controllers
                 return NotFound();
             }
 
-            return Ok(author);
+            return Ok(_mapper.Map<AuthorDto>(author));
         }
     }
 }

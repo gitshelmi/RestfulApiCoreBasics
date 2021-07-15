@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using RACB.API.Models;
 
-namespace RACB.API.DBContext
+namespace RACB.API.DataAccess
 {
     public class DatabaseContext : DbContext
     {
