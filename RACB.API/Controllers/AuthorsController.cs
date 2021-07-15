@@ -22,7 +22,7 @@ namespace RACB.API.Controllers
             var authors = _courseRepository.GetAuthors();
             return Ok(authors);
         }
-
+        .
         [HttpGet("{authorId}")]
         public IActionResult GetAuthor(Guid authorId)
         {
