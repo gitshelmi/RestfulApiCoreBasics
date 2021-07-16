@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using AutoMapper;
 using RACB.API.DTOs;
-using RACB.API.Extensions;
 using RACB.API.Models;
 
 namespace RACB.API.Controllers
@@ -21,7 +19,7 @@ namespace RACB.API.Controllers
             _courseRepository = courseRepository ??
                                 throw new ArgumentException(nameof(courseRepository));
             _mapper = mapper ??
-                      throw new ArgumentException(nameof(mapper)); ;
+                      throw new ArgumentException(nameof(mapper));
         }
 
         [HttpGet]

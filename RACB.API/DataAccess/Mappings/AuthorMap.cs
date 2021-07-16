@@ -5,9 +5,9 @@ using RACB.API.Models;
 
 namespace RACB.API.DataAccess.Mappings
 {
-    public class AuthorsMapper : Profile
+    public class AuthorMap : Profile
     {
-        public AuthorsMapper()
+        public AuthorMap()
         {
             CreateMap<Author, AuthorDto>()
                 .ForMember(
