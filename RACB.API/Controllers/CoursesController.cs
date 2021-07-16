@@ -25,6 +25,7 @@ namespace RACB.API.Controllers
         }
 
         [HttpGet]
+        [HttpHead]
         public ActionResult<IEnumerable<CourseDto>> GetAuthorCourses(Guid authorId)
         {
             if (!_courseRepository.AuthorExists(authorId))
@@ -37,7 +38,8 @@ namespace RACB.API.Controllers
             return Ok(_mapper.Map<IEnumerable<CourseDto>>(courses));
         }
 
-        [HttpGet("courseId")]
+        [HttpGet("{courseId}")]
+        [HttpHead]
         public ActionResult<CourseDto> GetAuthorCourse(Guid authorId, Guid courseId)
         {
             if (!_courseRepository.AuthorExists(authorId))

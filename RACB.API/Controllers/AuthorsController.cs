@@ -23,6 +23,7 @@ namespace RACB.API.Controllers
         }
 
         [HttpGet]
+        [HttpHead]
         public ActionResult<IEnumerable<AuthorDto>> GetAuthors()
         {
             var authors = _courseRepository.GetAuthors();
@@ -31,6 +32,7 @@ namespace RACB.API.Controllers
         }
 
         [HttpGet("{authorId}")]
+        [HttpHead]
         public ActionResult<AuthorDto> GetAuthor(Guid authorId)
         {
             var author = _courseRepository.GetAuthor(authorId);
