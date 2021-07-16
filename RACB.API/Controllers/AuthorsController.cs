@@ -32,7 +32,6 @@ namespace RACB.API.Controllers
         }
 
         [HttpGet("{authorId}")]
-        [HttpHead]
         public ActionResult<AuthorDto> GetAuthor(Guid authorId)
         {
             var author = _courseRepository.GetAuthor(authorId);

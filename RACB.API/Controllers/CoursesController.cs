@@ -39,7 +39,6 @@ namespace RACB.API.Controllers
         }
 
         [HttpGet("{courseId}")]
-        [HttpHead]
         public ActionResult<CourseDto> GetAuthorCourse(Guid authorId, Guid courseId)
         {
             if (!_courseRepository.AuthorExists(authorId))
