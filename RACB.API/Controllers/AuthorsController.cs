@@ -24,14 +24,15 @@ namespace RACB.API.Controllers
 
         [HttpGet]
         [HttpHead]
-        public ActionResult<IEnumerable<AuthorDto>> GetAuthors()
+        public ActionResult<IEnumerable<AuthorDto>> GetAuthors(
+            [FromQuery(Name = "mainCategory")] string category, string searchQuery)
         {
-            var authors = _courseRepository.GetAuthors();
+            var authors = _courseRepository.GetAuthors(category, searchQuery);
 
             return Ok(_mapper.Map<IEnumerable<AuthorDto>>(authors));
         }
 
-        [HttpGet("{authorId}")]
+        [HttpGet("{authorId}", Name = "GetAuthor")]
         public ActionResult<AuthorDto> GetAuthor(Guid authorId)
         {
             var author = _courseRepository.GetAuthor(authorId);
@@ -42,6 +43,20 @@ namespace RACB.API.Controllers
             }
 
             return Ok(_mapper.Map<AuthorDto>(author));
+        }
+
+        [HttpPost]
+        public ActionResult<AuthorDto> CreateAuthor(NewAuthorDto newAuthor)
+        {
+            var author = _mapper.Map<Author>(newAuthor);
+            _courseRepository.AddAuthor(author);
+            _courseRepository.Save();
+
+            var authorToReturn = _mapper.Map<AuthorDto>(author);
+
+            return CreatedAtRoute("GetAuthor",
+                new { authorId = authorToReturn.Id },
+                authorToReturn);
         }
     }
 }

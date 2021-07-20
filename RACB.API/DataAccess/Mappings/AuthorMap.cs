@@ -16,6 +16,8 @@ namespace RACB.API.DataAccess.Mappings
                 .ForMember(
                     destination => destination.Age,
                     map => map.MapFrom(source => source.DateOfBirth.GetCurrentAge()));
+
+            CreateMap<NewAuthorDto, Author>();
         }
     }
 }

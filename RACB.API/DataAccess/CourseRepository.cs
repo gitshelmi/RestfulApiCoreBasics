@@ -9,7 +9,7 @@ namespace RACB.API.DataAccess
     {
         private readonly DatabaseContext _context;
 
-        public CourseRepository(DatabaseContext context )
+        public CourseRepository(DatabaseContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
@@ -27,14 +27,14 @@ namespace RACB.API.DataAccess
             }
             // always set the AuthorId to the passed-in authorId
             course.AuthorId = authorId;
-            _context.Courses.Add(course); 
-        }         
+            _context.Courses.Add(course);
+        }
 
         public void DeleteCourse(Course course)
         {
             _context.Courses.Remove(course);
         }
-  
+
         public Course GetCourse(Guid authorId, Guid courseId)
         {
             if (authorId == Guid.Empty)
@@ -105,7 +105,7 @@ namespace RACB.API.DataAccess
 
             _context.Authors.Remove(author);
         }
-        
+
         public Author GetAuthor(Guid authorId)
         {
             if (authorId == Guid.Empty)
@@ -120,7 +120,35 @@ namespace RACB.API.DataAccess
         {
             return _context.Authors.ToList<Author>();
         }
-         
+
+        public IEnumerable<Author> GetAuthors(string category, string searchQuery)
+        {
+            if (string.IsNullOrWhiteSpace(category) &&
+                string.IsNullOrWhiteSpace(searchQuery))
+            {
+                return GetAuthors();
+            }
+
+            var authors = _context.Authors as IQueryable<Author>;
+
+            if (!string.IsNullOrWhiteSpace(category))
+            {
+                authors = authors
+                    .Where(author => author.MainCategory.ToLower() ==
+                                     category.Trim().ToLower());
+            }
+
+            if (!string.IsNullOrWhiteSpace(searchQuery))
+            {
+                authors = authors
+                    .Where(author => author.FirstName.Contains(searchQuery) ||
+                                     author.LastName.Contains(searchQuery) ||
+                                     author.MainCategory.Contains(searchQuery));
+            }
+
+            return authors.ToList();
+        }
+
         public IEnumerable<Author> GetAuthors(IEnumerable<Guid> authorIds)
         {
             if (authorIds == null)
@@ -154,7 +182,7 @@ namespace RACB.API.DataAccess
         {
             if (disposing)
             {
-               // dispose resources when needed
+                // dispose resources when needed
             }
         }
     }
