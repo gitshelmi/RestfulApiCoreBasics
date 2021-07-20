@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "7c9a506e-fb44-4b0d-acee-cb8d3d919b00",
+		"name": "WebAPIBasics",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetAuthors_NoCategory_ShouldReturnAllAuthorsInJson",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "GetAuthors_FilterCategory_ShouldReturnQualifiedAuthorsInJson",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "GetAuthors_Search_ShouldReturnQualifiedAuthorsInJson",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "GetAuthors_SearchAndFilter_ShouldReturnQualifiedAuthorsInJson",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "GetAuthors_RequestXml_ShouldReturnAuthorsInXml",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "GetAuthors_InvalidFormat_ShouldReturn406",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "GetAuthor_ValidId_ShouldReturnTheAuthor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "GetAuthor_InvalidId_ShouldRetur404",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "GetAuthorCourses_ValidAuthorId_ShouldReturnCourses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "GetAuthorCourses_InvalidAuthorId_ShouldReturn404",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "GetAuthorCourse_ValidAuthorIdValidCourseId_ShouldReturnTheCourse",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "GetAuthorCourses_InvalidAuthorIdValidCourseId_ShouldReturn404",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "GetAuthorCourses_ValidAuthorIdInvalidCourseId_ShouldReturn404",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "HEADGetAuthors_ShouldReturn200AndBlankResponse",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "CreateAuthor_WithValidValues_ShouldReturn201",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "CreateAuthor_WithInvalidValues_ShouldReturn400",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}
