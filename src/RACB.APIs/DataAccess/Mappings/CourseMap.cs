@@ -9,6 +9,7 @@ namespace RACB.API.DataAccess.Mappings
         public CourseMap()
         {
             CreateMap<Course, CourseDto>();
+            CreateMap<NewCourse, Course>();
         }
     }
 }
