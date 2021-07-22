@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace RACB.API.DTOs
 {
@@ -8,5 +9,6 @@ namespace RACB.API.DTOs
         public string LastName { get; set; }
         public DateTimeOffset DateOfBirth { get; set; }
         public string MainCategory { get; set; }
+        public ICollection<NewCourse> Courses { get; set; } = new List<NewCourse>();
     }
 }

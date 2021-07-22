@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using RACB.API.DTOs;
 using RACB.API.Models;
 
-namespace RACB.API.Controllers
+namespace RACB.APIs.Controllers
 {
     [ApiController]
     [Route("api/authors/{authorId}/courses")]

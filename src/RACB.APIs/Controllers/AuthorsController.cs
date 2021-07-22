@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using RACB.API.DTOs;
 using RACB.API.Models;
 
-namespace RACB.API.Controllers
+namespace RACB.APIs.Controllers
 {
     [ApiController]
     [Route("api/authors")]
@@ -57,6 +57,14 @@ namespace RACB.API.Controllers
             return CreatedAtRoute("GetAuthor",
                 new { authorId = authorToReturn.Id },
                 authorToReturn);
+        }
+
+        [HttpOptions]
+        public IActionResult AuthorsOptions()
+        {
+            Response.Headers.Add("Allow", "GET,OPTIONS,POST,HEAD");
+
+            return Ok();
         }
     }
 }
