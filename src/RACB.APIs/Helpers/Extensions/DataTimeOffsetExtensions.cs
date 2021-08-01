@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RACB.API.Extensions
+namespace RACB.APIs.Helpers.Extensions
 {
     public static class DataTimeOffsetExtensions
     {

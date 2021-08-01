@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using RACB.API.DTOs;
-using RACB.API.Extensions;
 using RACB.API.Models;
+using RACB.APIs.Helpers.Extensions;
 
-namespace RACB.API.DataAccess.Mappings
+namespace RACB.APIs.DataAccess.Mappings
 {
     public class AuthorMap : Profile
     {
