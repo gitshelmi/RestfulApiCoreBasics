@@ -5,6 +5,7 @@ using System.Linq;
 using AutoMapper;
 using RACB.API.DTOs;
 using RACB.API.Models;
+using RACB.APIs.DTOs;
 using RACB.APIs.Helpers.ModelBindings;
 
 namespace RACB.APIs.Controllers

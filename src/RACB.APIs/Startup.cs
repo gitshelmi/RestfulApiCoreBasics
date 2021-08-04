@@ -2,6 +2,9 @@ using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,7 +12,7 @@ using Microsoft.Extensions.Hosting;
 using RACB.API.DataAccess;
 using RACB.API.Models;
 
-namespace RACB.API
+namespace RACB.APIs
 {
     public class Startup
     {
@@ -24,9 +27,48 @@ namespace RACB.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers(options =>
-            {
-                options.ReturnHttpNotAcceptable = true;
-            }).AddXmlDataContractSerializerFormatters();
+                {
+                    options.ReturnHttpNotAcceptable = true;
+                }).AddXmlDataContractSerializerFormatters()
+                .ConfigureApiBehaviorOptions(setupAction =>
+                {
+                    setupAction.InvalidModelStateResponseFactory = context =>
+                    {
+                        var problemDetailsFactory = context.HttpContext.RequestServices
+                            .GetService<ProblemDetailsFactory>();
+                        var problemDetails = problemDetailsFactory.CreateValidationProblemDetails(
+                            context.HttpContext,
+                            context.ModelState);
+
+                        problemDetails.Detail = "See the errors field for details.";
+                        problemDetails.Instance = context.HttpContext.Request.Path;
+
+                        var actionExecutingContext = context as ActionExecutingContext;
+
+                        // if all arguments are found and parsed
+                        // but validation errors exist
+                        if ((context.ModelState.ErrorCount > 0) &&
+                            actionExecutingContext?.ActionArguments.Count ==
+                            context.ActionDescriptor.Parameters.Count)
+                        {
+                            problemDetails.Status = StatusCodes.Status422UnprocessableEntity;
+                            problemDetails.Title = "One or more validation errors occurred.";
+
+                            return new UnprocessableEntityObjectResult(problemDetails)
+                            {
+                                ContentTypes = {"application/problem+json"}
+                            };
+                        }
+
+                        // if an argument cannot be found or parsed
+                        problemDetails.Status = StatusCodes.Status400BadRequest;
+                        problemDetails.Title = "One or more errors exist in input.";
+                        return new BadRequestObjectResult(problemDetails)
+                        {
+                            ContentTypes = {"application/problem+json"}
+                        };
+                    };
+                });
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using RACB.API.DTOs;
 using RACB.API.Models;
+using RACB.APIs.DTOs;
 
 namespace RACB.APIs.DataAccess.Mappings
 {
@@ -9,7 +10,7 @@ namespace RACB.APIs.DataAccess.Mappings
         public CourseMap()
         {
             CreateMap<Course, CourseDto>();
-            CreateMap<NewCourse, Course>();
+            CreateMap<NewCourseDto, Course>();
         }
     }
 }

@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using RACB.API.DataAccess;
+using RACB.APIs;
 
 namespace RACB.API
 {

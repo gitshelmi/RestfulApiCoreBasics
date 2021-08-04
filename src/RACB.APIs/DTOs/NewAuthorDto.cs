@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using RACB.API.DTOs;
 
-namespace RACB.API.DTOs
+namespace RACB.APIs.DTOs
 {
     public class NewAuthorDto
     {
@@ -9,6 +10,6 @@ namespace RACB.API.DTOs
         public string LastName { get; set; }
         public DateTimeOffset DateOfBirth { get; set; }
         public string MainCategory { get; set; }
-        public ICollection<NewCourse> Courses { get; set; } = new List<NewCourse>();
+        public ICollection<NewCourseDto> Courses { get; set; } = new List<NewCourseDto>();
     }
 }

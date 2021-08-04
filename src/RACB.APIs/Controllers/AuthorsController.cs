@@ -4,6 +4,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using RACB.API.DTOs;
 using RACB.API.Models;
+using RACB.APIs.DTOs;
 
 namespace RACB.APIs.Controllers
 {

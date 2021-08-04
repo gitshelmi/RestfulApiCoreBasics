@@ -4,6 +4,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using RACB.API.DTOs;
 using RACB.API.Models;
+using RACB.APIs.DTOs;
 
 namespace RACB.APIs.Controllers
 {
@@ -55,14 +56,14 @@ namespace RACB.APIs.Controllers
         }
 
         [HttpPost]
-        public ActionResult<CourseDto> CreateAuthorCourse(Guid authorId, NewCourse newCourse)
+        public ActionResult<CourseDto> CreateAuthorCourse(Guid authorId, NewCourseDto newCourseDto)
         {
             if (!_courseRepository.AuthorExists(authorId))
             {
                 return NotFound();
             }
 
-            var course = _mapper.Map<Course>(newCourse);
+            var course = _mapper.Map<Course>(newCourseDto);
             _courseRepository.AddCourse(authorId, course);
             _courseRepository.Save();
 
