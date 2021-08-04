@@ -1,8 +1,14 @@
-﻿namespace RACB.APIs.DTOs
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace RACB.APIs.DTOs
 {
-    public class UpdatedCourseDto
+    public class UpdatedCourseDto : CourseModificationBaseDto
     {
-        public string Title { get; set; }
-        public string Description { get; set; }
+        [Required]
+        public override string Description
+        {
+            get => base.Description;
+            set => base.Description = value;
+        }
     }
 }
