@@ -11,6 +11,7 @@ namespace RACB.APIs.DataAccess.Mappings
         {
             CreateMap<Course, CourseDto>();
             CreateMap<NewCourseDto, Course>();
+            CreateMap<UpdatedCourseDto, Course>();
         }
     }
 }

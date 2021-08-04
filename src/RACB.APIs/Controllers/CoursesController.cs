@@ -71,5 +71,31 @@ namespace RACB.APIs.Controllers
                 new { authorId = authorId, courseId = course.Id },
                 _mapper.Map<CourseDto>(course));
         }
+
+        [HttpPut("{courseId}")]
+        public ActionResult UpdateCourseForAuthor(Guid authorId,
+            Guid courseId,
+            UpdatedCourseDto updatedCourse)
+        {
+            if (!_courseRepository.AuthorExists(authorId))
+            {
+                return NotFound();
+            }
+
+            var courseToUpdate = _courseRepository.GetCourse(authorId, courseId);
+
+            if (courseToUpdate == null)
+            {
+                return NotFound();
+            }
+
+            _mapper.Map(updatedCourse, courseToUpdate);
+
+            _courseRepository.UpdateCourse(courseToUpdate);
+
+            _courseRepository.Save();
+
+            return NoContent();
+        }
     }
 }
