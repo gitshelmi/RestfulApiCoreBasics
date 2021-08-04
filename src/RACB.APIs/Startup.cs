@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using RACB.API.DataAccess;
-using RACB.API.Models;
+using RACB.APIs.DataAccess;
+using RACB.APIs.Models;
 
 namespace RACB.APIs
 {

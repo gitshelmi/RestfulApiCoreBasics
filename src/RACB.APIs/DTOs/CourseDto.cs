@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RACB.API.DTOs
+namespace RACB.APIs.DTOs
 {
     public class CourseDto
     {

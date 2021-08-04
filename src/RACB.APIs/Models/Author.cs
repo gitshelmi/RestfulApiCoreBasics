@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace RACB.API.Models
+namespace RACB.APIs.Models
 {
     public class Author
     {

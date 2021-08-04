@@ -3,7 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using RACB.API.DataAccess;
+using RACB.APIs.DataAccess;
 
 namespace RACB.API.Migrations
 {

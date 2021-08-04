@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace RACB.API.Migrations
+namespace RACB.APIs.Migrations
 {
     public partial class InitialMigration : Migration
     {

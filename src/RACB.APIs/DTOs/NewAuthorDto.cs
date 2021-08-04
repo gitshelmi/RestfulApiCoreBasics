@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using RACB.API.DTOs;
 
 namespace RACB.APIs.DTOs
 {

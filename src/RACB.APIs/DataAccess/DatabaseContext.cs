@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
-using RACB.API.Models;
+using RACB.APIs.Models;
 
-namespace RACB.API.DataAccess
+namespace RACB.APIs.DataAccess
 {
     public class DatabaseContext : DbContext
     {

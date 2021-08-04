@@ -4,10 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RACB.API.DataAccess;
+using RACB.APIs.DataAccess;
 
-namespace RACB.API.Migrations
+namespace RACB.APIs.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
     [Migration("20210714195055_InitialMigration")]

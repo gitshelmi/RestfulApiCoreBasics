@@ -3,10 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
-using RACB.API.DTOs;
-using RACB.API.Models;
 using RACB.APIs.DTOs;
 using RACB.APIs.Helpers.ModelBindings;
+using RACB.APIs.Models;
 
 namespace RACB.APIs.Controllers
 {

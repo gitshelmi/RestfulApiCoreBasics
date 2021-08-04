@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RACB.API.Models
+namespace RACB.APIs.Models
 {
     public class Course
     {

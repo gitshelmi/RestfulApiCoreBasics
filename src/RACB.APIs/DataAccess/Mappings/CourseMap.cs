@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using RACB.API.DTOs;
-using RACB.API.Models;
 using RACB.APIs.DTOs;
+using RACB.APIs.Models;
 
 namespace RACB.APIs.DataAccess.Mappings
 {

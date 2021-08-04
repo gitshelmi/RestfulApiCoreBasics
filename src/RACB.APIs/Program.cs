@@ -4,10 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using RACB.API.DataAccess;
-using RACB.APIs;
+using RACB.APIs.DataAccess;
 
-namespace RACB.API
+namespace RACB.APIs
 {
     public class Program
     {

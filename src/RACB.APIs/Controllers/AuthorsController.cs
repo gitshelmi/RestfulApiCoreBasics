@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using RACB.API.DTOs;
-using RACB.API.Models;
 using RACB.APIs.DTOs;
+using RACB.APIs.Models;
 
 namespace RACB.APIs.Controllers
 {
